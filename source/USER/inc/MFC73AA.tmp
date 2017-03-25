@@ -1,0 +1,30 @@
+#ifndef __DISP_H
+#define __DISP_H
+
+#include "stm8s.h"
+
+//滚动模式
+typedef enum {
+    ROLL_NONE,          /* 没有动画 */
+    ROLL_LEFT,          /* 向上移动 */
+    ROLL_UP,          	/* 向下移动 */
+    ROLL_FLASH,         /* 正常闪动 */
+    ROLL_HIDE           /* 隐藏 */
+} RollTypeEnum;
+
+/* 显示初始化 */
+void DispInit(void);
+/* 字幕显示任务, 0.1ms任务 */
+void TaskDisp(void);
+/* 设置模式 */
+void SetMode(uint8_t index);
+/* 获取模式 */
+uint8_t GetMode(void);
+/* 设置楼层 */
+void SetFloor(uint8_t index);
+/* 设置超载等信息 */
+void SetMsg(uint8_t index);
+/* 设置亮度, 0=最暗, 9=最亮 */
+void SetBrightness(uint8_t value);
+
+#endif /* __DISP_H */
